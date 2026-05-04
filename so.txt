@@ -15,7 +15,7 @@
  50  VTAB 12: HTAB 16: INPUT YY$,MM$,DD$,HH$,SM$
  51  IF  LEN (YY$) <  > 4 THEN 40
  52  IF  VAL (YY$) < 1894 OR  VAL (YY$) > 2030 THEN 40
- 53 YY$ =  RIGHT$ (YY$,2)
+ 53 FY =  VAL (YY$): YY$ =  RIGHT$ (YY$,2)
  55  IF HH$ < "00" OR HH$ > "23" THEN 40
  60  GOSUB 11110
  62  PRINT  CHR$ (4);"PR#1"
@@ -33,8 +33,7 @@
  99 KK$ = "   <LDML VUDTOD TKWN "
  100  REM 
  101  PRINT : PRINT : PRINT :A$ = NA$ + KK$: PRINT A$
- 110 YV = 1 +  VAL (YY$):MV =  VAL (MM$):DV =  VAL (DD$):HV =  VAL (HH$):
-     HV =  INT ((HV + 1) / 2):NV =  VAL (YY$)
+ 110 YV = FY - 1899:MV =  VAL (MM$):DV =  VAL (DD$):HV =  VAL (HH$): HV =  INT ((HV + 1) / 2):NV = FY -  INT (FY / 10) * 10: IF NV = 0 THEN NV = 10
  120  IF YV > 12 THEN YV = YV - 12: GOTO 120
  130 MZ = YV + MV - 1: IF MZ > 12 THEN MZ = MZ - 12
  140 LZ = MZ + DV - 1
@@ -150,7 +149,7 @@
  11160  REM  SOLAR ---> RUNAR CAL.
  11170  REM 
  11180 :
- 11190 YZ$ = "19" + YY$:YR =  VAL (YZ$):MN =  VAL (MM$):DY =  VAL (DD$)
+ 11190 YR = FY:MN =  VAL (MM$):DY =  VAL (DD$)
  11200  IF YR < 1894 OR YR > 2030 THEN 11820
  11210 OY = YR:DL$ = ""
  11220  IF ( INT (YR / 400) * 400) = YR OR ( INT (YR / 100) * 100) <  > Y
@@ -186,11 +185,12 @@
  11465 AW$ = "DMA FUR " +  STR$ (OY) + "SUS " + ZZ$ +  STR$ (OM) + "DNJF 
      " +  STR$ (OD) + "DLF "
  11466 YY$ =  RIGHT$ ( STR$ (OY),2):MM$ =  STR$ (OM):DD$ =  STR$ (OD)
- 11470  RETURN 
+ 11467 FY = OY
+ 11470  RETURN
  11480  REM  LUNAR ----> SOLAR CAL.
  11490  REM 
  11500 :
- 11510 YZ$ = "19" + YY$:YR =  VAL (YZ$):MN =  VAL (MM$):DY =  VAL (DD$)
+ 11510 YR = FY:MN =  VAL (MM$):DY =  VAL (DD$)
  11520  IF YR < 1894 OR YR > 2030 THEN 11820
  11530 OY = YR:KY = YR - 1893:MN = MN - 1:NL = 0: IF MN = 0 THEN 11630
  11540  FOR I = 1 TO MN:YL = YY(KY,I): IF YL > 2 THEN 11560
