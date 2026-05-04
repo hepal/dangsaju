@@ -68,8 +68,8 @@
  140 LZ = MZ + DV - 1
  150  IF LZ > 12 THEN LZ = LZ - 1
      2: GOTO 150
- 160 TZ = LZ + HV: IF TZ > 12 THEN 
-     TZ = TZ - 11
+ 160 TZ = LZ + HV: IF TZ > 12 THEN
+     TZ = TZ - 12
  170  ON YV GOSUB 700,620,640,670
      ,700,620,640,670,700,620,640
      ,670
@@ -85,7 +85,7 @@
      0: GOTO 220
  230  ON NV GOSUB 660,650,640,620
      ,720,710,700,690,680,670
- 240 J1 = CS + MV1: IF J1 > 12 THEN 
+ 240 J1 = CS + MV: IF J1 > 12 THEN
      J1 = J1 - 12
  250  IF J1 = 0 THEN J1 = 12
  260 SZ = 14 - YV: IF SZ > 12 THEN 
@@ -142,8 +142,8 @@
      DB$(5,I): PRINT A$: NEXT I
  510 X = 1:A$ = "QN QN RND : " + 
      DB$(6,0): PRINT : PRINT A$
- 520 X = 13: FOR I = 1 TO 3:A$ = 
-     DB$(6,I): NEXT I
+ 520 X = 13: FOR I = 1 TO 3:A$ =
+     DB$(6,I): PRINT A$: NEXT I
  530 X = 1:A$ = "WK TLR RND :" + 
      DB$(7,0): PRINT : PRINT A$
  540 X = 13: FOR I = 1 TO 2:A$ = 
@@ -363,9 +363,9 @@
      ) + 28:NL = NL + IS
  11660 NL = NL + YK(KY)
  11670  IF ( INT (YR / 400) * 400
-     ) = YR OR ( INT (YR / 100) * 
-     10200) <  > YR AND ( INT (YR
-      / 4) * 4) = YR THEN PY(2) = 
+     ) = YR OR ( INT (YR / 100) *
+     100) <  > YR AND ( INT (YR
+      / 4) * 4) = YR THEN PY(2) =
      29
  11680  FOR I = 1 TO 12:MT = I:NH
       = NL - PY(I): IF NH <  = 0 THEN 
@@ -373,10 +373,10 @@
  11690 NL = NL - PY(I): NEXT I
  11700  IF NH > 0 THEN OY = OY + 
      1
- 11710 IY = YR + 1: IF ( INT (YR / 
+ 11710 IY = YR + 1: IF ( INT (YR /
      400) * 400) = YR OR ( INT (Y
-     R / 100) * 10200) <  > YR AND 
-     ( INT (YR / 4) * 4) = YR THEN 
+     R / 100) * 100) <  > YR AND
+     ( INT (YR / 4) * 4) = YR THEN
      PY(2) = 29
  11720  GOTO 11680
  11730 OM = MT:OD = PY(MT) + NH:Y
