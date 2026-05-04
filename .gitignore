@@ -1,0 +1,30 @@
+# AppleWin 에뮬레이터 실행 파일 및 설정
+Applewin.exe
+AppleWin.chm
+DELREG.INF
+*.SYM
+
+# 당사주 무관 디스크 이미지
+BINGO.DSK
+MASTER.DSK
+MID-ENGLISH-*.DSK
+STEP-BY-STEP.DSK
+HANGUL-VISCALC1.DSK
+HANGUL-VISCALC2.DSK
+Prince*/
+Prince*.dsk
+Prince*.DSK
+Prince*.zip
+Ultima*.dsk
+Ultima*.zip
+
+# 기타
+source.txt
+printer
+History.txt
+Debugger_Changelog.txt
+"GNU General Public License.txt"
+Pri
+
+# Claude 로컬 설정
+.claude/settings.local.json

@@ -1,0 +1,411 @@
+
+]LIST
+
+ 0  ONERR  GOTO 0
+ 1 A$ = "":B$ = "":C$ = "":D$ = "
+     "
+ 10  DIM DA$(8),DB$(10,8),FR$(10)
+     ,QB%(10)
+ 20  GOSUB 10000
+ 30 FR$(1) = "I":FR$(2) = "D":FR$
+     (3) = "A":FR$(4) = "B":FR$(5
+     ) = "C":FR$(6) = "E":FR$(7) = 
+     "F":FR$(8) = "G":FR$(9) = "H
+     ":FR$(10) = "J"
+ 32 QB%(1) = 8:QB%(2) = 3:QB%(3) = 
+     3:QB%(4) = 3:QB%(5) = 3:QB%(
+     6) = 3:QB%(7) = 2:QB%(8) = 2
+     :QB%(9) = 2:QB%(10) = 2
+ 34  CALL 3327
+ 35  FOR I = 5 TO 35: FOR J = 8 TO 
+     14 STEP 6: VTAB J: HTAB I: PRINT 
+      CHR$ (9);" ";: NEXT J,I: PRINT 
+      CHR$ (14)
+ 40  VTAB 10: HTAB 8: INPUT "DL F
+     MA : ";NA$: HTAB 8: PRINT "T
+     OD DLF 19 XX,MM,DD,HH,SM"
+ 45  IF NA$ = "W" THEN 5000
+ 46  IF NA$ = "M" THEN 5050
+ 50  VTAB 12: HTAB 16: INPUT YY$,
+     MM$,DD$,HH$,SM$
+ 55  IF HH$ < "00" OR HH$ > "23" THEN 
+     40
+ 60  GOSUB 11110
+ 62  PRINT  CHR$ (4);"PR#1"
+ 63  PRINT  CHR$ (16); CHR$ (9);
+ 64  FOR I = 1 TO 40: FOR J = 1 TO 
+     5: VTAB J: HTAB I: PRINT " "
+     ;: NEXT J,I: PRINT  CHR$ (14
+     )
+ 65  PRINT  CHR$ (15): PRINT "   
+                           "
+ 66  PRINT  CHR$ (14): PRINT  TAB( 
+     5);"EKD TK WN": PRINT  CHR$ 
+     (15): PRINT "               
+               ": PRINT  CHR$ (14
+     )
+ 67  VTAB 3: PRINT  CHR$ (9);A$; CHR$ 
+     (14): VTAB 10
+ 70 X = 37:A$ = "DL FMA : " + NA$
+     
+ 80  PRINT A$
+ 85 A$ = AQ$: PRINT A$
+ 90 A$ = AW$ + HH$ + "TL TOD ": PRINT 
+     A$
+ 99 KK$ = "   <LDML VUDTOD TKWN "
+     
+ 100  REM 
+ 101  PRINT : PRINT : PRINT :A$ = 
+     NA$ + KK$: PRINT A$
+ 110 YV = 1 +  VAL (YY$):MV =  VAL 
+     (MM$):DV =  VAL (DD$):HV =  VAL 
+     (HH$):HV =  INT ((HV + 1) / 
+     2):NV =  VAL (YY$)
+ 120  IF YV > 12 THEN YV = YV - 1
+     2: GOTO 120
+ 130 MZ = YV + MV - 1: IF MZ > 12
+      THEN MZ = MZ - 12
+ 140 LZ = MZ + DV - 1
+ 150  IF LZ > 12 THEN LZ = LZ - 1
+     2: GOTO 150
+ 160 TZ = LZ + HV: IF TZ > 12 THEN 
+     TZ = TZ - 11
+ 170  ON YV GOSUB 700,620,640,670
+     ,700,620,640,670,700,620,640
+     ,670
+ 180 HZ = CS + MV: IF HZ > 12 THEN 
+     HZ = HZ - 12
+ 190  ON YV GOSUB 680,710,630,650
+     ,680,710,630,650,680,710,630
+     ,650
+ 200 CZ = CS + HV + 1: IF CZ > 12
+      THEN CZ = CZ - 12
+ 210 C2 = CZ
+ 220  IF NV > 10 THEN NV = NV - 1
+     0: GOTO 220
+ 230  ON NV GOSUB 660,650,640,620
+     ,720,710,700,690,680,670
+ 240 J1 = CS + MV1: IF J1 > 12 THEN 
+     J1 = J1 - 12
+ 250  IF J1 = 0 THEN J1 = 12
+ 260 SZ = 14 - YV: IF SZ > 12 THEN 
+     SZ = SZ - 12
+ 270 SZ = SZ + MV - 1: IF SZ > 12
+      THEN SZ = SZ - 12
+ 280 DC(1) = SZ:DC(2) = TZ:DC(3) = 
+     YV:DC(4) = MZ:DC(5) = LZ:DC(
+     6) = HZ:DC(7) = CZ:DC(8) = J
+     1:DC(9) = J1:DC(10) = C2
+ 290 :
+ 300  FOR I = 1 TO 10
+ 310 FF$ = FR$(I):L% = QB%(I)
+ 315 B% = 280: IF FF$ = "I" THEN 
+     B% = 500
+ 320  PRINT 
+ 340  PRINT : PRINT  CHR$ (13); CHR$ 
+     (4);"PR#0"
+ 350  PRINT  CHR$ (4);"OPEN ";FF$
+     ;",L";B%
+ 360  PRINT  CHR$ (4);"READ ";FF$
+     ;",R";DC(I)
+ 370  FOR K = 0 TO L%: INPUT DA$(
+     K): NEXT K
+ 380  PRINT  CHR$ (4);"CLOSE ";FF
+     $
+ 390  FOR K = 0 TO L%:DB$(I,K) = 
+     DA$(K): NEXT K
+ 400  NEXT I
+ 405  CALL 3327
+ 406  PR# 1
+ 410 X = 1:A$ = "CHD      DNS  :"
+      + DB$(1,0): PRINT A$
+ 420 X = 13: FOR I = 1 TO 7:A$ = 
+     DB$(1,I): PRINT A$: NEXT I
+ 427 X = 10:A$ = DB$(1,8): PRINT 
+     A$
+ 430 X = 1:A$ = "XMRTJDALC DBSUS 
+     :" + DB$(2,0): PRINT : PRINT 
+     A$
+ 440 X = 13: FOR I = 1 TO 3:A$ = 
+     DB$(2,I): PRINT A$: NEXT I
+ 450 X = 1:A$ = "CH SUS RND  :" + 
+     DB$(3,0): PRINT : PRINT A$
+ 460 X = 13: FOR I = 1 TO 3:A$ = 
+     DB$(3,I): PRINT A$: NEXT I
+ 470 X = 1:A$ = "WND SUS RND :" + 
+     DB$(4,0): PRINT : PRINT A$
+ 480 X = 13: FOR I = 1 TO 3:A$ = 
+     DB$(4,I): PRINT A$: NEXT I
+ 490 X = 1:A$ = "AKF SUS RND : " + 
+     DB$(5,0): PRINT : PRINT A$
+ 500 X = 13: FOR I = 1 TO 3:A$ = 
+     DB$(5,I): PRINT A$: NEXT I
+ 510 X = 1:A$ = "QN QN RND : " + 
+     DB$(6,0): PRINT : PRINT A$
+ 520 X = 13: FOR I = 1 TO 3:A$ = 
+     DB$(6,I): NEXT I
+ 530 X = 1:A$ = "WK TLR RND :" + 
+     DB$(7,0): PRINT : PRINT A$
+ 540 X = 13: FOR I = 1 TO 2:A$ = 
+     DB$(7,I): PRINT A$: NEXT I
+ 550 X = 1:A$ = "WP DLF WLR DJQ :
+          " + DB$(8,0): PRINT : PRINT 
+     A$
+ 560 X = 13: FOR I = 1 TO 2:A$ = 
+     DB$(8,I): PRINT A$: NEXT I
+ 570 X = 1:A$ = "WP DL WLR DJQ :"
+      + DB$(9,0): PRINT : PRINT A
+     $
+ 580 X = 13: FOR I = 1 TO 2:A$ = 
+     DB$(9,I): PRINT A$: NEXT I
+ 590 X = 1:A$ = "TN GKS RND :" + 
+     DB$(10,0): PRINT : PRINT A$
+ 600 X = 13: FOR I = 1 TO 2:A$ = 
+     DB$(10,I): PRINT A$: NEXT I
+ 605  GOSUB 4000
+ 610  POKE 214,18: PRINT  CHR$ (1
+     40): PR# 0: GOTO 40
+ 620 CS = 0: RETURN 
+ 630 CS = 1: RETURN 
+ 640 CS = 3: RETURN 
+ 650 CS = 4: RETURN 
+ 660 CS = 5: RETURN 
+ 670 CS = 6: RETURN 
+ 680 CS = 7: RETURN 
+ 690 CS = 8: RETURN 
+ 700 CS = 9: RETURN 
+ 710 CS = 10: RETURN 
+ 720 CS = 11: RETURN 
+ 730  REM 
+ 740  PRINT A$
+ 750  RETURN 
+ 3000 :
+ 3010  PRINT  CHR$ (4);"OPEN CHK"
+     : PRINT  CHR$ (4);"READ CHK"
+     : INPUT ZZ: PRINT  CHR$ (4);
+     "CLOSE CHK":ZZ = ZZ + 1
+ 3020  PRINT  CHR$ (4);"PR#1": PRINT 
+      TAB( 70);ZZ
+ 3030  PRINT  CHR$ (4);"OPEN CHK"
+     : PRINT  CHR$ (4);"WRITE CHK
+     ": PRINT ZZ: PRINT  CHR$ (4)
+     ;"CLOSE CHK"
+ 3040  RETURN 
+ 4000  REM  INPUT "AAA";XX$
+ 4010  RETURN 
+ 5000  REM  PRINTER OUT
+ 5010  CALL 3327: PRINT : PRINT  CHR$ 
+     (4);"BLOAD LADY BE GOOD.PIC"
+     
+ 5020  FOR I = 1 TO 300: NEXT I: PR# 
+     1: POKE 1913,99: PRINT  CHR$ 
+     (17)
+ 5021  PR# 1
+ 5022  POKE 1913,33: PRINT  CHR$ 
+     (17): PR# 0: CALL 3327: GOTO 
+     40
+ 5050  PRINT  CHR$ (4);"BLOAD A.P
+     IC,A$2000": FOR I = 1 TO 500
+     : PR# 1: POKE 1913,99: PRINT 
+      CHR$ (17)
+ 5055  PR# 1
+ 5060  POKE 1913,33: PRINT  CHR$ 
+     (17)
+ 5070  PR# 0: CALL 3327: GOTO 40
+ 10000  CALL 3327: VTAB 12: HTAB 
+     12: INVERSE : PRINT "WAIT A 
+     MOMENT !!": NORMAL 
+ 10010  DIM PY(12),YK(97),YY(97,1
+     2),YD(12,2),MO$(7)
+ 10020  FOR I = 1 TO 12: READ PY(
+     I): NEXT I
+ 10030  DATA  31,28,31,30,31,30,3
+     1,31,30,31,30,31
+ 10040  FOR I = 1 TO 7: READ MO$(
+     I): NEXT I
+ 10050  DATA  "DLF","DNJF","GHK",
+     "TN","AHR","RMA","XH"
+ 10060  FOR I = 1 TO 97: READ YK(
+     I): NEXT I
+ 10070  DATA  36,25,43,32,21,40,3
+     0,49,38,28,46,34,24,43,32,21
+     
+ 10080  DATA  40,29,48,36,25,44,3
+     4,22,41,31,50,38,27,46,35,23
+     
+ 10090  DATA  43,32,22,40,29,47,3
+     6,25,44,34,23,41,30,49,38,26
+     
+ 10100  DATA  45,35,25,43,32,21,4
+     0,28,47,36,26,44,34,23,42,30
+     
+ 10110  DATA  49,38,27,45,35,24,4
+     3,32,21,39,29,47,36,26,45,33
+     
+ 10120  DATA  22,41,30,48,37,27,4
+     6,35,24,43,32,50,39,28,47,36
+     ,26
+ 10130 D$ =  CHR$ (4)
+ 10140  PRINT D$;"OPEN CAL/DAT"
+ 10150  PRINT D$;"READ CAL/DAT"
+ 10160  FOR I = 1 TO 97: FOR J = 
+     1 TO 12: INPUT YY(I,J): NEXT 
+     J,I
+ 10170  PRINT D$;"CLOSE CAL/DAT"
+ 11105  RETURN 
+ 11110 ZZ$ = ""
+ 11120 :
+ 11130 PY(2) = 28
+ 11140  IF SM$ = "S" THEN 11160
+ 11145  GOTO 11480
+ 11150  VTAB 15: HTAB 15: INVERSE 
+     : PRINT "ERROR !!": NORMAL :
+      FOR I = 1 TO 500: NEXT I: GOTO 
+     11120
+ 11160  REM  SOLAR ---> RUNAR CAL
+     .
+ 11170  REM 
+ 11180 :
+ 11190 YZ$ = "19" + YY$:YR =  VAL 
+     (YZ$):MN =  VAL (MM$):DY =  VAL 
+     (DD$)
+ 11200  IF YR < 1894 OR YR > 1990
+      THEN 11820
+ 11210 OY = YR:DL$ = ""
+ 11220  IF ( INT (YR / 400) * 400
+     ) = YR OR ( INT (YR / 100) * 
+     100) <  > YR AND ( INT (YR / 
+     4) * 4) = YR THEN PY(2) = 29
+     
+ 11230 Y = YR - 1:NS =  INT (Y / 
+     4) -  INT (Y / 100) +  INT (
+     Y / 400) + (Y -  INT (Y / 7)
+      * 7)
+ 11240  IF MN = 1 AND DY = 1 THEN 
+     11280
+ 11250  IF MN = 1 THEN 11270
+ 11260  FOR I = 1 TO MN - 1:NS = 
+     NS + PY(I): NEXT I
+ 11270 NS = NS + DY
+ 11280 K =  INT (NS / 7) * 7:MR = 
+     NS - K + 1:KY = YR - 1893:MN
+      = MN - 1:NL = 0
+ 11290  IF MN = 0 THEN 11310
+ 11300  FOR I = 1 TO MN:NL = NL + 
+     PY(I): NEXT I
+ 11310 NL = NL + DY:MN = MN + 1:N
+     H = NL - YK(KY):KK = KY - 1:
+     L1 = YY(KK,11) + 28:L2 = YY(
+     KK,12) + 28: IF NH > 0 THEN 
+     11350
+ 11320 OY = YR - 1:OM = 12:OD = L
+     2 + NH
+ 11330  IF OD <  = 0 THEN OM = 11
+     :OD = L1 + OD
+ 11340  GOTO 11460
+ 11350 OM = 0
+ 11360 OM = OM + 1:YL = YY(KY,OM)
+     : IF YL > 2 THEN 11390
+ 11370 LL = YL + 28:NH = NH - LL:
+      IF NH > 0 THEN 11360
+ 11380 OD = LL + NH: GOTO 11460
+ 11390 L1 = 29:L2 = 29: IF YL = 3
+     12 THEN L2 = 30
+ 11400  IF YL = 321 THEN L1 = 30
+ 11410  IF YL = 322 THEN L1 = 30:
+     L2 = 30
+ 11420 NH = NH - L1: IF NH > 0 THEN 
+     11440
+ 11430 OD = L1 + NH: GOTO 11460
+ 11440 NH = NH - L2: IF NH > 0 THEN 
+     11360
+ 11450 OD = L2 + NH:ZZ$ = "DBS"
+ 11460 AQ$ = "DIDFUR " +  STR$ (Y
+     R) + "SUS " +  STR$ (MN) + "
+     DNJF " +  STR$ (DY) + "DLF "
+      + MO$(MR) + "DYDLF"
+ 11465 AW$ = "DMA FUR " +  STR$ (
+     OY) + "SUS " + ZZ$ +  STR$ (
+     OM) + "DNJF " +  STR$ (OD) + 
+     "DLF "
+ 11466 YY$ =  RIGHT$ ( STR$ (OY),
+     2):MM$ =  STR$ (OM):DD$ =  STR$ 
+     (OD)
+ 11470  RETURN 
+ 11480  REM  LUNAR ----> SOLAR CA
+     L.
+ 11490  REM 
+ 11500 :
+ 11510 YZ$ = "19" + YY$:YR =  VAL 
+     (YZ$):MN =  VAL (MM$):DY =  VAL 
+     (DD$)
+ 11520  IF YR < 1894 OR YR > 1990
+      THEN 11820
+ 11530 OY = YR:KY = YR - 1893:MN = 
+     MN - 1:NL = 0: IF MN = 0 THEN 
+     11630
+ 11540  FOR I = 1 TO MN:YL = YY(K
+     Y,I): IF YL > 2 THEN 11560
+ 11550 LL = YL + 28: GOTO 11610
+ 11560 L1 = 29:L2 = 29: IF YL = 3
+     12 THEN L2 = 30
+ 11570  IF YL = 321 THEN L1 = 30
+ 11580  IF YL = 322 THEN L1 = 30
+ 11590  IF YL = 322 THEN L2 = 30
+ 11600 LL = L1 + L2
+ 11610 NL = NL + LL
+ 11620  NEXT I
+ 11630 NL = NL + DY:MN = MN + 1: IF 
+     ZZ$ <  > "DBS" THEN 11660
+ 11640 IS = YY(KY,MN): IF IS < 3 THEN 
+     11820
+ 11650 IS =  INT ((IS - 300) / 10
+     ) + 28:NL = NL + IS
+ 11660 NL = NL + YK(KY)
+ 11670  IF ( INT (YR / 400) * 400
+     ) = YR OR ( INT (YR / 100) * 
+     10200) <  > YR AND ( INT (YR
+      / 4) * 4) = YR THEN PY(2) = 
+     29
+ 11680  FOR I = 1 TO 12:MT = I:NH
+      = NL - PY(I): IF NH <  = 0 THEN 
+     11730
+ 11690 NL = NL - PY(I): NEXT I
+ 11700  IF NH > 0 THEN OY = OY + 
+     1
+ 11710 IY = YR + 1: IF ( INT (YR / 
+     400) * 400) = YR OR ( INT (Y
+     R / 100) * 10200) <  > YR AND 
+     ( INT (YR / 4) * 4) = YR THEN 
+     PY(2) = 29
+ 11720  GOTO 11680
+ 11730 OM = MT:OD = PY(MT) + NH:Y
+      = OY - 1:NS =  INT (Y / 4) - 
+      INT (Y / 100) +  INT (Y / 4
+     00) + (Y -  INT (Y / 7) * 7)
+     
+ 11740  IF OM = 1 AND OD = 1 THEN 
+     11780
+ 11750  IF OM = 1 THEN 11770
+ 11760  FOR I = 1 TO OM - 1:NS = 
+     NS + PY(I): NEXT I
+ 11770 NS = NS + OD
+ 11780 K =  INT (NS / 7) * 7:MR = 
+     NS - K + 1
+ 11790 AW$ = "DMA FUR " +  STR$ (
+     YR) + "SUS " +  STR$ (MN) + 
+     "DNJF " +  STR$ (DY) + "DLF 
+     "
+ 11795 AQ$ = "DIDFUR " +  STR$ (O
+     Y) + "SUS " +  STR$ (OM) + "
+     DNJF " +  STR$ (OD) + "DLF "
+      + MO$(MR) + "DYDLF"
+ 11810  RETURN 
+ 11820  HOME : VTAB 12: HTAB 15: INVERSE : PRINT "DATA ERROR !": NORMAL :
+      FOR I = 1 TO 1000: NEXT I
+ 11830  GOTO 40
+ 20000  POKE 214,18: PR# 1: PRINT 
+      CHR$ (140): PR# 0: CALL 332
+     7
+
+]
